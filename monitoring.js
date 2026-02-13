@@ -28,6 +28,12 @@ function monitoringApp() {
         latestData: null,
         loading: true,
         lastUpdateTime: '',
+        chart: null,
+
+        // Get last 10 items for display
+        get displayItems() {
+            return this.items.slice(0, 10);
+        },
 
         // Format time to readable format
         formatTime(isoString) {
@@ -120,6 +126,200 @@ function monitoringApp() {
             }
         },
 
+        // Initialize Chart - Line Chart
+        initChart() {
+            console.log('initChart() called');
+            const canvasElement = document.getElementById('trendChart');
+            
+            // If canvas not found, retry after longer delay
+            if (!canvasElement) {
+                console.warn('❌ Canvas element not found, retrying in 500ms...');
+                setTimeout(() => this.initChart(), 500);
+                return;
+            }
+            
+            console.log('✅ Canvas element found:', canvasElement);
+
+            if (this.displayItems.length === 0) {
+                console.warn('No data available for chart');
+                return;
+            }
+
+            // Get 2D context
+            const ctx = canvasElement.getContext('2d');
+            if (!ctx) {
+                console.error('Failed to get canvas context');
+                return;
+            }
+            
+            console.log('✅ Canvas context obtained:', ctx);
+
+            // Prepare data - reverse to show chronological order (oldest to newest)
+            const chartItems = [...this.displayItems].reverse();
+            console.log('Chart data items:', chartItems.length);
+            
+            const labels = chartItems.map((item) => {
+                try {
+                    const date = new Date(item.waktu);
+                    return date.toLocaleTimeString('id-ID', {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                } catch (e) {
+                    return 'N/A';
+                }
+            });
+            
+            // Log sample data
+            console.log('Labels:', labels);
+            
+            const phData = chartItems.map(item => parseFloat(item.ph) || 0);
+            const suhuData = chartItems.map(item => parseFloat(item.suhu) || 0);
+            const tdsData = chartItems.map(item => parseFloat(item.tds) || 0);
+            const ntuData = chartItems.map(item => parseFloat(item.ntu) || 0);
+            
+            console.log('pH data:', phData);
+            console.log('Suhu data:', suhuData);
+            console.log('TDS data:', tdsData);
+            console.log('NTU data:', ntuData);
+
+            // Destroy old chart if exists
+            if (this.chart) {
+                console.log('Destroying previous chart');
+                this.chart.destroy();
+            }
+
+            console.log('Creating new chart...');
+            this.chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'pH',
+                            data: phData,
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: '#3b82f6',
+                            pointBorderColor: '#1e40af',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Suhu (°C)',
+                            data: suhuData,
+                            borderColor: '#f97316',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: '#f97316',
+                            pointBorderColor: '#ea580c',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: 'TDS',
+                            data: tdsData,
+                            borderColor: '#22c55e',
+                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: '#22c55e',
+                            pointBorderColor: '#15803d',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            yAxisID: 'y2'
+                        },
+                        {
+                            label: 'NTU',
+                            data: ntuData,
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: '#ef4444',
+                            pointBorderColor: '#dc2626',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            yAxisID: 'y3'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: { size: 12, weight: 'bold' },
+                                padding: 15,
+                                usePointStyle: true,
+                                boxWidth: 6
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 13, weight: 'bold' },
+                            bodyFont: { size: 11 },
+                            borderColor: 'rgba(255, 255, 255, 0.3)',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: true
+                            },
+                            ticks: {
+                                font: { size: 10 },
+                                maxRotation: 45,
+                                minRotation: 0
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            position: 'left',
+                            title: { display: true, text: 'pH' },
+                            grid: { color: 'rgba(59, 130, 246, 0.1)' }
+                        },
+                        y1: {
+                            type: 'linear',
+                            position: 'right',
+                            title: { display: true, text: 'Suhu (°C)' },
+                            grid: { drawOnChartArea: false }
+                        },
+                        y2: {
+                            type: 'linear',
+                            position: 'right',
+                            title: { display: true, text: 'TDS' },
+                            grid: { drawOnChartArea: false }
+                        },
+                        y3: {
+                            type: 'linear',
+                            position: 'right',
+                            title: { display: true, text: 'NTU' },
+                            grid: { drawOnChartArea: false }
+                        }
+                    }
+                }
+            });
+        },
+
         // Initialize - Load realtime data from Firebase
         async init() {
             this.loading = true;
@@ -148,6 +348,13 @@ function monitoringApp() {
                     }
                     this.loading = false;
                     this.updateLastTime();
+                    // Initialize/update chart - use longer delay to ensure DOM is ready
+                    if (!this.loading && this.displayItems.length > 0) {
+                        setTimeout(() => {
+                            console.log('Initializing chart with', this.displayItems.length, 'items');
+                            this.initChart();
+                        }, 500);
+                    }
                 }, (error) => {
                     console.error('❌ Error loading data:', error);
                     this.loading = false;
