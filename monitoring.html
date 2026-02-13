@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Kualitas Air - Realtime</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fadeIn { animation: fadeIn 0.3s ease-in; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-cyan-50 to-blue-100 min-h-screen py-8">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">💧 Monitoring Kualitas Air</h1>
+            <p class="text-gray-600">Dashboard Realtime - Data Terupdate Otomatis</p>
+        </div>
+
+        <div x-data="monitoringApp()" x-cloak x-init="init()" class="bg-white rounded-lg shadow-xl overflow-hidden">
+            
+            <!-- Stats Header -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-6 bg-gradient-to-r from-blue-600 to-cyan-600">
+                <div class="text-white">
+                    <p class="text-sm font-semibold opacity-80">Total Data</p>
+                    <p class="text-3xl font-bold" x-text="items.length"></p>
+                </div>
+                <div class="text-white">
+                    <p class="text-sm font-semibold opacity-80">pH Terakhir</p>
+                    <p class="text-3xl font-bold" x-text="latestData?.ph || '-'"></p>
+                </div>
+                <div class="text-white">
+                    <p class="text-sm font-semibold opacity-80">Suhu (°C)</p>
+                    <p class="text-3xl font-bold" x-text="latestData?.suhu || '-'"></p>
+                </div>
+                <div class="text-white">
+                    <p class="text-sm font-semibold opacity-80">TDS</p>
+                    <p class="text-3xl font-bold" x-text="latestData?.tds || '-'"></p>
+                </div>
+                <div class="text-white">
+                    <p class="text-sm font-semibold opacity-80">NTU</p>
+                    <p class="text-3xl font-bold" x-text="latestData?.ntu || '-'"></p>
+                </div>
+            </div>
+
+            <!-- Status Loading -->
+            <div class="px-6 py-3 bg-blue-50 border-b border-blue-100 flex items-center gap-2">
+                <div x-show="loading" class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
+                    <span class="text-sm text-blue-600 font-semibold">Memuat data...</span>
+                </div>
+                <div x-show="!loading" class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                    <span class="text-sm text-green-600 font-semibold">Live - Terhubung ke Firebase</span>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-100 border-b border-gray-200">
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 w-12">#</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700">Waktu</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700">pH</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700">Suhu (°C)</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700">TDS</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700">NTU</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-gray-700">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Empty State -->
+                        <tr x-show="!loading && items.length === 0">
+                            <td colspan="7" class="px-6 py-8 text-center text-gray-500">
+                                <p class="text-lg">📭 Belum ada data</p>
+                                <p class="text-sm">Tunggu data dari sensor...</p>
+                            </td>
+                        </tr>
+
+                        <!-- Data Rows -->
+                        <template x-for="(item, index) in items" :key="item.id">
+                            <tr class="border-b border-gray-200 hover:bg-blue-50 transition duration-200 fadeIn" 
+                                :class="index === 0 && 'bg-blue-50'">
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-600" x-text="index + 1"></td>
+                                <td class="px-6 py-4 text-sm text-gray-700 font-medium" x-text="formatTime(item.waktu)"></td>
+                                <td class="px-6 py-4 text-sm">
+                                    <span :class="getPhStatus(item.ph)" x-text="`${item.ph}`"></span>
+                                </td>
+                                <td class="px-6 py-4 text-sm">
+                                    <span :class="getTempStatus(item.suhu)" x-text="`${item.suhu}°C`"></span>
+                                </td>
+                                <td class="px-6 py-4 text-sm font-medium" x-text="item.tds"></td>
+                                <td class="px-6 py-4 text-sm">
+                                    <span :class="getNtuStatus(item.ntu)" x-text="item.ntu"></span>
+                                </td>
+                                <td class="px-6 py-4 text-sm">
+                                    <span x-text="getOverallStatus(item)" 
+                                          :class="getStatusBadgeClass(item)"></span>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Footer -->
+            <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 text-sm text-gray-600">
+                <p>Menampilkan <strong x-text="items.length"></strong> data | Update terakhir: <span x-text="lastUpdateTime || 'Menunggu...'"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Script -->
+    <script type="module" src="monitoring.js"></script>
+    <!-- Alpine JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+</html>
