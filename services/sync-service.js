@@ -25,7 +25,7 @@ const firebaseConfig = {
 let admin_initialized = false;
 
 try {
-    const serviceAccount = require('./firebase-service-account.json');
+    const serviceAccount = require('../firebase-service-account.json');
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
         databaseURL: firebaseConfig.databaseURL
@@ -102,7 +102,7 @@ function convertFirebaseToArray(firebaseData) {
  */
 function saveToJSON(data) {
     try {
-        const filePath = path.join(__dirname, 'data.json');
+        const filePath = path.join(__dirname, '../data/data.json');
         const jsonData = {
             lastUpdated: new Date().toISOString(),
             items: data

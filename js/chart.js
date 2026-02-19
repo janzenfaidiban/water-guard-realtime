@@ -9,13 +9,32 @@ function chartApp() {
         lastUpdateTime: '',
         chart: null,
         syncStatus: 'Checking...',
+        lastDataHash: '',
 
         // Get last 20 items for chart
         get displayItems() {
             return this.items.slice(0, 20);
         },
 
-        // Initialize chart
+        // Generate hash to check if data changed
+        getDataHash() {
+            if (this.displayItems.length === 0) return '';
+            return this.displayItems.map(i => i.id).join(',');
+        },
+
+        // Prepare chart data
+        prepareChartData() {
+            const chartItems = [...this.displayItems].reverse();
+            return {
+                labels: chartItems.map(item => formatTimeShort(item.waktu)),
+                phData: chartItems.map(item => parseFloat(item.ph) || 0),
+                suhuData: chartItems.map(item => parseFloat(item.suhu) || 0),
+                tdsData: chartItems.map(item => parseFloat(item.tds) || 0),
+                ntuData: chartItems.map(item => parseFloat(item.ntu) || 0)
+            };
+        },
+
+        // Initialize chart (only once)
         initChart() {
             const canvasElement = document.getElementById('trendChart');
             
@@ -30,85 +49,79 @@ function chartApp() {
                 return;
             }
 
+            // If chart already exists, just update data
+            if (this.chart) {
+                this.updateChartData();
+                return;
+            }
+
             const ctx = canvasElement.getContext('2d');
             if (!ctx) {
                 console.error('Failed to get canvas context');
                 return;
             }
 
-            // Prepare data - reverse to show chronological order (oldest to newest)
-            const chartItems = [...this.displayItems].reverse();
-            
-            const labels = chartItems.map(item => formatTimeShort(item.waktu));
-            const phData = chartItems.map(item => parseFloat(item.ph) || 0);
-            const suhuData = chartItems.map(item => parseFloat(item.suhu) || 0);
-            const tdsData = chartItems.map(item => parseFloat(item.tds) || 0);
-            const ntuData = chartItems.map(item => parseFloat(item.ntu) || 0);
-
-            // Destroy old chart if exists
-            if (this.chart) {
-                this.chart.destroy();
-            }
+            const data = this.prepareChartData();
 
             this.chart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: labels,
+                    labels: data.labels,
                     datasets: [
                         {
                             label: 'pH',
-                            data: phData,
+                            data: data.phData,
                             borderColor: '#3b82f6',
                             backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                            borderWidth: 3,
+                            borderWidth: 2,
                             fill: true,
                             tension: 0.3,
                             pointBackgroundColor: '#3b82f6',
                             pointBorderColor: '#1e40af',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
                             yAxisID: 'y'
                         },
                         {
                             label: 'Suhu (°C)',
-                            data: suhuData,
+                            data: data.suhuData,
                             borderColor: '#f97316',
                             backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                            borderWidth: 3,
+                            borderWidth: 2,
                             fill: true,
                             tension: 0.3,
                             pointBackgroundColor: '#f97316',
                             pointBorderColor: '#ea580c',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
                             yAxisID: 'y1'
                         },
                         {
                             label: 'TDS',
-                            data: tdsData,
+                            data: data.tdsData,
                             borderColor: '#22c55e',
                             backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                            borderWidth: 3,
+                            borderWidth: 2,
                             fill: true,
                             tension: 0.3,
                             pointBackgroundColor: '#22c55e',
                             pointBorderColor: '#15803d',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
                             yAxisID: 'y2'
                         },
                         {
                             label: 'NTU',
-                            data: ntuData,
+                            data: data.ntuData,
                             borderColor: '#ef4444',
                             backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                            borderWidth: 3,
+                            borderWidth: 2,
                             fill: true,
                             tension: 0.3,
                             pointBackgroundColor: '#ef4444',
                             pointBorderColor: '#dc2626',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
                             yAxisID: 'y3'
                         }
                     ]
@@ -116,10 +129,7 @@ function chartApp() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: true,
-                    animation: {
-                        duration: 750,
-                        easing: 'easeInOutQuart'
-                    },
+                    animation: false, // Disable animation for stability
                     interaction: {
                         mode: 'index',
                         intersect: false
@@ -145,10 +155,8 @@ function chartApp() {
                     },
                     scales: {
                         x: {
-                            reverse: false,
                             grid: {
-                                color: 'rgba(0, 0, 0, 0.05)',
-                                drawBorder: true
+                                color: 'rgba(0, 0, 0, 0.05)'
                             },
                             ticks: {
                                 font: { size: 10 },
@@ -183,13 +191,37 @@ function chartApp() {
                     }
                 }
             });
+            
+            this.lastDataHash = this.getDataHash();
             console.log('✅ Chart initialized successfully');
+        },
+
+        // Update chart data without recreating
+        updateChartData() {
+            if (!this.chart || this.displayItems.length === 0) return;
+
+            // Check if data actually changed
+            const newHash = this.getDataHash();
+            if (newHash === this.lastDataHash) return;
+
+            const data = this.prepareChartData();
+
+            this.chart.data.labels = data.labels;
+            this.chart.data.datasets[0].data = data.phData;
+            this.chart.data.datasets[1].data = data.suhuData;
+            this.chart.data.datasets[2].data = data.tdsData;
+            this.chart.data.datasets[3].data = data.ntuData;
+            this.chart.update('none'); // 'none' = no animation
+
+            this.lastDataHash = newHash;
+            this.updateLastTime();
+            console.log('📊 Chart data updated');
         },
 
         // Load data from local data.json
         async loadDataFromJSON() {
             try {
-                const response = await fetch('./data.json?t=' + Date.now());
+                const response = await fetch('./data/data.json?t=' + Date.now());
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 const jsonData = await response.json();
@@ -259,7 +291,7 @@ function chartApp() {
         // Check sync status from data.json
         async checkSyncStatus() {
             try {
-                const response = await fetch('./data.json?t=' + Date.now());
+                const response = await fetch('./data/data.json?t=' + Date.now());
                 const jsonData = await response.json();
                 
                 if (!jsonData.items || jsonData.items.length === 0) {
@@ -296,7 +328,7 @@ function chartApp() {
                 console.log('✅ Data loaded successfully');
                 this.loading = false;
                 this.updateLastTime();
-                setTimeout(() => this.initChart(), 500);
+                setTimeout(() => this.initChart(), 300);
             } else {
                 console.log('⚠️ No data available yet');
                 this.loading = false;
@@ -305,22 +337,22 @@ function chartApp() {
             // Check sync status immediately
             await this.checkSyncStatus();
             
-            // Poll for updates every 3 seconds
-            const pollInterval = setInterval(async () => {
+            // Poll for updates every 10 seconds (less frequent = more stable)
+            setInterval(async () => {
                 try {
                     await this.loadDataFromJSON();
-                    if (this.displayItems.length > 0 && this.chart === null) {
-                        console.log('📊 Initializing chart with available data');
-                        setTimeout(() => this.initChart(), 300);
-                    } else if (this.chart && this.items.length > 0) {
-                        // Update existing chart
-                        this.initChart();
+                    if (this.displayItems.length > 0) {
+                        if (this.chart === null) {
+                            this.initChart();
+                        } else {
+                            this.updateChartData();
+                        }
                     }
                     await this.checkSyncStatus();
                 } catch (error) {
                     console.error('Poll error:', error);
                 }
-            }, 3000);
+            }, 10000);
         },
 
         // Update last update time

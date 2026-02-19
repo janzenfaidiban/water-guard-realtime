@@ -1,0 +1,805 @@
+{
+  "lastUpdated": "2026-02-19T04:46:38.179Z",
+  "items": [
+    {
+      "id": "-Oleo-2L_xDVd-nsC9bY",
+      "ntu": 0,
+      "ph": 8.52,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:55:41.226Z"
+    },
+    {
+      "id": "-OlenqxBpb2AyqZ_nRmI",
+      "ntu": 0,
+      "ph": 8.52,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:55:03.805Z"
+    },
+    {
+      "id": "-OlenhoVauuFg8jBynT5",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:54:26.467Z"
+    },
+    {
+      "id": "-OlenZkDf3L6GdPL3tFG",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:53:49.362Z"
+    },
+    {
+      "id": "-OlenQQvTsa60w9Zkc8f",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:53:11.194Z"
+    },
+    {
+      "id": "-OlenHGiBTn6i75kbRUd",
+      "ntu": 0,
+      "ph": 8.55,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:52:33.674Z"
+    },
+    {
+      "id": "-Olen85mok97k9_ImfNb",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:51:56.146Z"
+    },
+    {
+      "id": "-Olemzy9hH36Ii6CJrJ_",
+      "ntu": 0,
+      "ph": 8.55,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:51:18.708Z"
+    },
+    {
+      "id": "-Olemqo6GVzPxabw1gIW",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:50:41.211Z"
+    },
+    {
+      "id": "-Olemhefoa6SraOf7TSA",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:50:03.740Z"
+    },
+    {
+      "id": "-OlemZZnLv3NiyrqG39q",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:49:26.250Z"
+    },
+    {
+      "id": "-OlemQM4AX-ZG_VC_i3t",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 26.75,
+      "tds": 16,
+      "waktu": "2026-02-17T08:48:48.707Z"
+    },
+    {
+      "id": "-OlemHO2iz--WhXAIiVt",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:48:11.986Z"
+    },
+    {
+      "id": "-Olem86wPjN4oQ2bQfVV",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:47:33.848Z"
+    },
+    {
+      "id": "-OlelztJfEA1BVjDV_jV",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:46:56.238Z"
+    },
+    {
+      "id": "-OlelqiQ9ISmHPuNBAhJ",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:46:18.696Z"
+    },
+    {
+      "id": "-OlelhaezTiUL07B1-P_",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:45:41.361Z"
+    },
+    {
+      "id": "-OlelZSfE0cJBX_nzlck",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:45:03.894Z"
+    },
+    {
+      "id": "-OlelQoYk1TeZlUsGxWu",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 26.75,
+      "tds": 18,
+      "waktu": "2026-02-17T08:44:27.802Z"
+    },
+    {
+      "id": "-OlelH8VTVN8hZxWIvLJ",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:43:48.743Z"
+    },
+    {
+      "id": "-Olel80vakKKIriUVo6J",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:43:11.507Z"
+    },
+    {
+      "id": "-Olekztetedqo5WtA5-s",
+      "ntu": 0,
+      "ph": 8.57,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:42:34.138Z"
+    },
+    {
+      "id": "-OlekqhsPt7eS39t-oNu",
+      "ntu": 0,
+      "ph": 8.61,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:41:56.299Z"
+    },
+    {
+      "id": "-OlekhXOzsMp2hgCpX_E",
+      "ntu": 0,
+      "ph": 8.61,
+      "suhu": 27,
+      "tds": 16,
+      "waktu": "2026-02-17T08:41:18.888Z"
+    },
+    {
+      "id": "-OlekZNUIG1SclsTKn5m",
+      "ntu": 0,
+      "ph": 8.61,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:40:41.363Z"
+    },
+    {
+      "id": "-OlekQCxsZLnrt7jRsEN",
+      "ntu": 0,
+      "ph": 8.64,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:40:03.819Z"
+    },
+    {
+      "id": "-OlekH3K3zMwWacBP3Tl",
+      "ntu": 0,
+      "ph": 8.64,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:39:26.323Z"
+    },
+    {
+      "id": "-Olek7snTnxA9HmKvwXT",
+      "ntu": 0,
+      "ph": 8.63,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:38:48.815Z"
+    },
+    {
+      "id": "-Olek-7z6ngHYjlxRL4Y",
+      "ntu": 0,
+      "ph": 8.85,
+      "suhu": 27,
+      "tds": 14,
+      "waktu": "2026-02-17T08:38:12.639Z"
+    },
+    {
+      "id": "-OlejqePVFekFgzbVnEj",
+      "ntu": 3000,
+      "ph": 8.56,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:37:34.065Z"
+    },
+    {
+      "id": "-OlejhZNdP-s1ZMmYbB4",
+      "ntu": 3000,
+      "ph": 8.54,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:36:56.903Z"
+    },
+    {
+      "id": "-OlejZXRr2XaP8k6v5ot",
+      "ntu": 3000,
+      "ph": 8.5,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:36:19.043Z"
+    },
+    {
+      "id": "-OlejQ7zGFvVuWTEsQRn",
+      "ntu": 0,
+      "ph": 8.55,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:35:41.416Z"
+    },
+    {
+      "id": "-OlejGvGTVICeWl6rv4R",
+      "ntu": 0,
+      "ph": 8.53,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:35:03.684Z"
+    },
+    {
+      "id": "-Olej8-EjkquhVTe7ccd",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:34:26.936Z"
+    },
+    {
+      "id": "-OleizkHN26YIfMEsj7A",
+      "ntu": 0,
+      "ph": 8.49,
+      "suhu": 27,
+      "tds": 18,
+      "waktu": "2026-02-17T08:33:48.939Z"
+    },
+    {
+      "id": "-OleiqiA3Phy_pX5LMKj",
+      "ntu": 0,
+      "ph": 8.54,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:33:12.082Z"
+    },
+    {
+      "id": "-Oleihmm-bzJG9Nf8l88",
+      "ntu": 0,
+      "ph": 8.59,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:32:35.603Z"
+    },
+    {
+      "id": "-Olei_ToLILuULEwgdlk",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:32:01.671Z"
+    },
+    {
+      "id": "-OleiS5rVGMfb7Mw22Gp",
+      "ntu": 0,
+      "ph": 8.6,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:31:26.813Z"
+    },
+    {
+      "id": "-OleiIRU6clj0liIKTWA",
+      "ntu": 0,
+      "ph": 8.61,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:30:44.824Z"
+    },
+    {
+      "id": "-Olei7l48ouEQvNeWnKO",
+      "ntu": 0,
+      "ph": 8.6,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:30:03.688Z"
+    },
+    {
+      "id": "-OlehzYD2wUq8rkrUG8O",
+      "ntu": 0,
+      "ph": 8.66,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:29:26.198Z"
+    },
+    {
+      "id": "-OlehqOv-1pnuvqHKi5E",
+      "ntu": 0,
+      "ph": 8.64,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:28:48.681Z"
+    },
+    {
+      "id": "-OlehhEzO9St9_Nq60Mm",
+      "ntu": 0,
+      "ph": 8.62,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:28:11.192Z"
+    },
+    {
+      "id": "-OlehZ4K7GKkVIM9yV4C",
+      "ntu": 0,
+      "ph": 8.63,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:27:33.723Z"
+    },
+    {
+      "id": "-OlehPt5eF72QTLJLQ8m",
+      "ntu": 0,
+      "ph": 8.66,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:26:56.154Z"
+    },
+    {
+      "id": "-OlehGjlwqNe2wGSEbkB",
+      "ntu": 0,
+      "ph": 8.62,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:26:18.686Z"
+    },
+    {
+      "id": "-Oleh7la5C3VPYWZIDmu",
+      "ntu": 0,
+      "ph": 8.62,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:25:41.816Z"
+    },
+    {
+      "id": "-OlegzR6Imr4K4C2AA2E",
+      "ntu": 0,
+      "ph": 8.62,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:25:03.680Z"
+    },
+    {
+      "id": "-OlegqHjdZfGyg1fMq6z",
+      "ntu": 0,
+      "ph": 8.63,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:24:26.202Z"
+    },
+    {
+      "id": "-Olegh7e326W3lOOtBau",
+      "ntu": 0,
+      "ph": 8.66,
+      "suhu": 27.25,
+      "tds": 18,
+      "waktu": "2026-02-17T08:23:48.721Z"
+    },
+    {
+      "id": "-OlegYyJ8xpd2wyJAlX1",
+      "ntu": 0,
+      "ph": 8.62,
+      "suhu": 27.25,
+      "tds": 20,
+      "waktu": "2026-02-17T08:23:11.188Z"
+    },
+    {
+      "id": "-OlegPs3FoQ_Urg6crLV",
+      "ntu": 0,
+      "ph": 8.63,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:22:33.765Z"
+    },
+    {
+      "id": "-OlegGeOHVS7xyQD11l2",
+      "ntu": 0,
+      "ph": 8.59,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:21:56.202Z"
+    },
+    {
+      "id": "-Oleg7XL62wwcdudhx5r",
+      "ntu": 0,
+      "ph": 8.63,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:21:18.758Z"
+    },
+    {
+      "id": "-Oleg-jbjTLSgooWRWJS",
+      "ntu": 0,
+      "ph": 8.63,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:20:44.129Z"
+    },
+    {
+      "id": "-OlefqOjFQZ4vLeaND-g",
+      "ntu": 0,
+      "ph": 8.59,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:20:04.302Z"
+    },
+    {
+      "id": "-Olefh2FI38mfY9xnlQl",
+      "ntu": 0,
+      "ph": 8.6,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:19:26.188Z"
+    },
+    {
+      "id": "-OlefYwCgwMWG_7hen0P",
+      "ntu": 0,
+      "ph": 8.69,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:18:48.916Z"
+    },
+    {
+      "id": "-OlefPk-pBhYZKWywhT5",
+      "ntu": 0,
+      "ph": 8.58,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:18:11.235Z"
+    },
+    {
+      "id": "-OlefG_6eLVb0e0ULZvF",
+      "ntu": 0,
+      "ph": 8.62,
+      "suhu": 27.5,
+      "tds": 17,
+      "waktu": "2026-02-17T08:17:33.733Z"
+    },
+    {
+      "id": "-Olef7QEkPwZnypQnhW0",
+      "ntu": 0,
+      "ph": 8.69,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:16:56.188Z"
+    },
+    {
+      "id": "-OleezFc9pu-iud8nA-a",
+      "ntu": 0,
+      "ph": 8.53,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:16:18.696Z"
+    },
+    {
+      "id": "-Oleeq5eSF85n5EpD2eS",
+      "ntu": 0,
+      "ph": 8.43,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:15:41.176Z"
+    },
+    {
+      "id": "-OleegxPR0Ey0m_Y1Lpm",
+      "ntu": 0,
+      "ph": 8.51,
+      "suhu": 27.5,
+      "tds": 19,
+      "waktu": "2026-02-17T08:15:03.712Z"
+    },
+    {
+      "id": "-OleeZ1j1sUHOqXiXBHE",
+      "ntu": 0,
+      "ph": 8.55,
+      "suhu": 27.5,
+      "tds": 21,
+      "waktu": "2026-02-17T08:14:26.918Z"
+    },
+    {
+      "id": "-OleePnbppS33GK5_CTX",
+      "ntu": 0,
+      "ph": 8.42,
+      "suhu": 27.5,
+      "tds": 21,
+      "waktu": "2026-02-17T08:13:49.355Z"
+    },
+    {
+      "id": "-OleeGbhuHo0wIiAQ9DR",
+      "ntu": 0,
+      "ph": 8.45,
+      "suhu": 27.5,
+      "tds": 21,
+      "waktu": "2026-02-17T08:13:11.606Z"
+    },
+    {
+      "id": "-Olee7LFDhzP4ZjBtmhx",
+      "ntu": 0,
+      "ph": 8.56,
+      "suhu": 27.5,
+      "tds": 21,
+      "waktu": "2026-02-17T08:12:33.696Z"
+    },
+    {
+      "id": "-OledzJ7v1NOSdV-esGe",
+      "ntu": 0,
+      "ph": 8.4,
+      "suhu": 27.5,
+      "tds": 21,
+      "waktu": "2026-02-17T08:11:56.759Z"
+    },
+    {
+      "id": "-OledqRKoY5Qkb0rrjpC",
+      "ntu": 0,
+      "ph": 8.18,
+      "suhu": 27.5,
+      "tds": 21,
+      "waktu": "2026-02-17T08:11:19.135Z"
+    },
+    {
+      "id": "-Oledj2by5NtxNpZpM26",
+      "ntu": 0,
+      "ph": 8.14,
+      "suhu": 27.75,
+      "tds": 23,
+      "waktu": "2026-02-17T08:10:45.018Z"
+    },
+    {
+      "id": "-OledYiWFSOVgw4wRxe8",
+      "ntu": 0,
+      "ph": 8.07,
+      "suhu": 27.75,
+      "tds": 23,
+      "waktu": "2026-02-17T08:10:03.748Z"
+    },
+    {
+      "id": "-OledPbnbqNJaMbgkdED",
+      "ntu": 0,
+      "ph": 5.11,
+      "suhu": 27.75,
+      "tds": 0,
+      "waktu": "2026-02-17T08:09:26.435Z"
+    },
+    {
+      "id": "-OledHOZYHN22IR1ZTzb",
+      "ntu": 0,
+      "ph": 2.52,
+      "suhu": 27.75,
+      "tds": 0,
+      "waktu": "2026-02-17T08:08:50.797Z"
+    },
+    {
+      "id": "-OlRhG2FoUgk11F_iIAr",
+      "ntu": 0,
+      "ph": 9.43,
+      "suhu": 34.5,
+      "tds": 0,
+      "waktu": "2026-02-14T15:11:33.909Z"
+    },
+    {
+      "id": "-OlRh6m8QgGbKgYUu7Ej",
+      "ntu": 0,
+      "ph": 9.28,
+      "suhu": 33.5,
+      "tds": 0,
+      "waktu": "2026-02-14T15:10:56.398Z"
+    },
+    {
+      "id": "-OlRgyZsLgELa_AY0Tsb",
+      "ntu": 0,
+      "ph": 9.27,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:10:18.959Z"
+    },
+    {
+      "id": "-OlRgpdp3XXrONqq3SE7",
+      "ntu": 0,
+      "ph": 9.28,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:09:42.029Z"
+    },
+    {
+      "id": "-OlRggrUoR7nRUdLi2pg",
+      "ntu": 0,
+      "ph": 9.26,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:09:04.050Z"
+    },
+    {
+      "id": "-OlRg_wFc17vtpvscmG_",
+      "ntu": 0,
+      "ph": 9.25,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:08:37.965Z"
+    },
+    {
+      "id": "-OlRgP5iaWKNYGieUxgi",
+      "ntu": 0,
+      "ph": 9.33,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:07:49.529Z"
+    },
+    {
+      "id": "-OlRgJOcK95TLLZ3OZb4",
+      "ntu": 0,
+      "ph": 9.25,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:07:12.367Z"
+    },
+    {
+      "id": "-OlRg8srhq9OH3UqVhb7",
+      "ntu": 0,
+      "ph": 9.27,
+      "suhu": 29,
+      "tds": 0,
+      "waktu": "2026-02-14T15:06:35.177Z"
+    },
+    {
+      "id": "-OlMgRAl-TIRZjJ-VTgt",
+      "ntu": 0,
+      "ph": 8.67,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:49:51.595Z"
+    },
+    {
+      "id": "-OlMgGhksgP6gmH0szy3",
+      "ntu": 0,
+      "ph": 8.93,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:49:08.754Z"
+    },
+    {
+      "id": "-OlMg7bheBhs19RSJV_s",
+      "ntu": 0,
+      "ph": 8.67,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:48:31.318Z"
+    },
+    {
+      "id": "-OlMfzXj3JH_ph0keuwk",
+      "ntu": 0,
+      "ph": 8.8,
+      "suhu": 29.25,
+      "tds": 7,
+      "waktu": "2026-02-13T15:47:53.858Z"
+    },
+    {
+      "id": "-OlMfuWPfiPqSZ5aUXQt",
+      "ntu": 0,
+      "ph": 8.9,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:47:16.271Z"
+    },
+    {
+      "id": "-OlMfh6IpYz4XBqK89kv",
+      "ntu": 0,
+      "ph": 8.65,
+      "suhu": 29.25,
+      "tds": 11,
+      "waktu": "2026-02-13T15:46:38.815Z"
+    },
+    {
+      "id": "-OlMfZUENszk51qRKipE",
+      "ntu": 0,
+      "ph": 8.92,
+      "suhu": 29.25,
+      "tds": 11,
+      "waktu": "2026-02-13T15:46:01.914Z"
+    },
+    {
+      "id": "-OlMfPvb9HfWMvcId9WF",
+      "ntu": 0,
+      "ph": 8.7,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:45:24.233Z"
+    },
+    {
+      "id": "-OlMfGeeoxRiP9Sp4CHU",
+      "ntu": 0,
+      "ph": 8.67,
+      "suhu": 29.25,
+      "tds": 11,
+      "waktu": "2026-02-13T15:44:46.359Z"
+    },
+    {
+      "id": "-OlMf7cyuRO-rS-AbBMY",
+      "ntu": 0,
+      "ph": 8.9,
+      "suhu": 29.25,
+      "tds": 11,
+      "waktu": "2026-02-13T15:44:09.355Z"
+    },
+    {
+      "id": "-OlMezMpUnIGFTIU7B8o",
+      "ntu": 0,
+      "ph": 8.66,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:43:31.277Z"
+    },
+    {
+      "id": "-OlMeqVWT32CmJRXRoyi",
+      "ntu": 0,
+      "ph": 8.94,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:42:53.859Z"
+    },
+    {
+      "id": "-OlMeh01-Xy6WCvoO7wI",
+      "ntu": 0,
+      "ph": 8.68,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:42:16.279Z"
+    },
+    {
+      "id": "-OlMeZQvtAQNQjpwo9lC",
+      "ntu": 0,
+      "ph": 8.66,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:41:38.864Z"
+    },
+    {
+      "id": "-OlMeTRT8ZrOvR8QsTsC",
+      "ntu": 0,
+      "ph": 8.93,
+      "suhu": 29.25,
+      "tds": 9,
+      "waktu": "2026-02-13T15:41:01.340Z"
+    }
+  ]
+}
