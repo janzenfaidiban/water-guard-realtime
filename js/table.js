@@ -9,50 +9,81 @@ import {
     getCurrentTime
 } from "./utils.js";
 
-// Alpine JS App for Table Page
 function tableApp() {
     return {
         items: [],
         latestData: null,
         loading: true,
         lastUpdateTime: '',
+        
+        // Filter State
+        filter: { day: '', month: '', year: '' },
+        isFiltered: false,
+        filteredItems: [],
 
-        // Get last 50 items for display
+        // --- State Pagination ---
+        currentPage: 1,
+        itemsPerPage: 10,
+
+        // Logic pengambilan data yang akan ditampilkan
         get displayItems() {
-            return this.items.slice(0, 50);
+            const source = this.isFiltered ? this.filteredItems : this.items;
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return source.slice(start, end);
         },
 
-        // Format time
-        formatTime,
+        // Menghitung total halaman
+        get totalPages() {
+            const source = this.isFiltered ? this.filteredItems : this.items;
+            return Math.ceil(source.length / this.itemsPerPage) || 1;
+        },
 
-        // Status functions
-        getPhStatus,
-        getTempStatus,
-        getNtuStatus,
-        getStatusBadgeClass,
-        getOverallStatus,
+        // --- Navigasi ---
+        nextPage() {
+            if (this.currentPage < this.totalPages) this.currentPage++;
+        },
+        prevPage() {
+            if (this.currentPage > 1) this.currentPage--;
+        },
 
-        // Initialize
+        applyFilter() {
+            this.isFiltered = true;
+            this.currentPage = 1; // Reset ke halaman 1 saat filter
+            this.filteredItems = this.items.filter(item => {
+                const date = new Date(item.waktu);
+                const matchDay = this.filter.day === '' || date.getDate() == this.filter.day;
+                const matchMonth = this.filter.month === '' || date.getMonth() == this.filter.month;
+                const matchYear = this.filter.year === '' || date.getFullYear() == this.filter.year;
+                return matchDay && matchMonth && matchYear;
+            });
+        },
+
+        resetFilter() {
+            this.filter = { day: '', month: '', year: '' };
+            this.isFiltered = false;
+            this.currentPage = 1;
+        },
+
+        // Re-export utility functions
+        formatTime, getPhStatus, getTempStatus, getNtuStatus, getStatusBadgeClass, getOverallStatus,
+
         init() {
             this.loading = true;
             setupListener((items) => {
-                this.items = items.slice(0, 100); // Keep up to 100 items
-                if (this.items.length > 0) {
-                    this.latestData = this.items[0];
-                }
+                this.items = items; // Ambil semua data agar pagination berfungsi
+                if (this.items.length > 0) this.latestData = this.items[0];
+                if (this.isFiltered) this.applyFilter();
                 this.loading = false;
                 this.updateLastTime();
             });
         },
 
-        // Update last update time
         updateLastTime() {
             this.lastUpdateTime = getCurrentTime();
         }
     };
 }
 
-// Make tableApp available globally for Alpine
 window.tableApp = tableApp;
-
-console.log('✅ Table Page Ready');
+console.log('✅ Table Page Ready with Filter');

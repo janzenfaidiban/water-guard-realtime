@@ -65,6 +65,55 @@
                 </div>
             </div>
 
+
+            <div class="px-6 py-4 bg-gray-50 border-b border-gray-100 flex flex-wrap items-end gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-500 mb-1">📅 Tanggal</label>
+                    <select x-model="filter.day" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                        <option value="">Semua</option>
+                        <template x-for="d in 31">
+                            <option :value="d" x-text="d"></option>
+                        </template>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-500 mb-1">🌙 Bulan</label>
+                    <select x-model="filter.month" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                        <option value="">Semua</option>
+                        <option value="0">Januari</option>
+                        <option value="1">Februari</option>
+                        <option value="2">Maret</option>
+                        <option value="3">April</option>
+                        <option value="4">Mei</option>
+                        <option value="5">Juni</option>
+                        <option value="6">Juli</option>
+                        <option value="7">Agustus</option>
+                        <option value="8">September</option>
+                        <option value="9">Oktober</option>
+                        <option value="10">November</option>
+                        <option value="11">Desember</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-500 mb-1">🗓️ Tahun</label>
+                    <select x-model="filter.year" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                        <option value="">Semua</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+                </div>
+                <div class="flex gap-2">
+                    <button @click="applyFilter()" class="px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
+                        Filter Data
+                    </button>
+                    <button @click="resetFilter()" class="px-5 py-2 bg-gray-200 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-300 transition">
+                        Reset
+                    </button>
+                </div>
+            </div>
+
+
             <!-- Table -->
             <div class="overflow-x-auto">
                 <table class="w-full">
@@ -113,6 +162,47 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="px-6 py-4 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="text-sm text-gray-500">
+        Menampilkan <span class="font-bold text-gray-800" x-text="displayItems.length"></span> 
+        dari <span class="font-bold text-gray-800" x-text="isFiltered ? filteredItems.length : items.length"></span> data
+    </div>
+
+    <div class="flex items-center gap-2">
+        <button 
+            @click="prevPage()" 
+            :disabled="currentPage === 1"
+            :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100'"
+            class="px-3 py-1 border rounded text-sm font-medium text-gray-600 transition">
+            Prev
+        </button>
+        
+        <div class="flex items-center gap-1">
+            <template x-for="p in totalPages" :key="p">
+                <button 
+                    @click="currentPage = p"
+                    x-show="p >= currentPage - 2 && p <= currentPage + 2"
+                    :class="currentPage === p ? 'bg-blue-600 text-white border-blue-600' : 'text-gray-600 hover:bg-gray-50'"
+                    class="w-8 h-8 border rounded text-sm font-medium transition"
+                    x-text="p">
+                </button>
+            </template>
+        </div>
+
+        <button 
+            @click="nextPage()" 
+            :disabled="currentPage === totalPages"
+            :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100'"
+            class="px-3 py-1 border rounded text-sm font-medium text-gray-600 transition">
+            Next
+        </button>
+    </div>
+
+    <div class="text-xs text-gray-400">
+        Hal: <span x-text="currentPage"></span> / <span x-text="totalPages"></span>
+    </div>
+</div>
 
             <!-- Footer -->
             <div class="px-6 py-4 border-t border-gray-100 text-sm text-gray-500">
